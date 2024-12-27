@@ -52,7 +52,9 @@ def 物件计数(image: Image.Image, tags: list[str]) -> list[str]:
 
 ### 使用训练好的lora
 
-如果你想要直接使用，我还上传了1个训练好的lora到[release](https://github.com/RimoChan/danbooru-prompt-extend/releases)和[Civitai](https://civitai.com/models/1076462/prompt-extend)，可以直接下回去用。不过我也很少训SDXL的lora，大概就数据丢进去lora训出来，效果还可以那就用它了，你可能自己再调1调参数再训会比我的效果好！
+如果你想要直接使用，我也上传了训练好的lora到[GitHub Releases](https://github.com/RimoChan/danbooru-prompt-extend/releases)和[Civitai](https://civitai.com/models/1076462/prompt-extend)，可以直接下回去用。
+
+不过我也很少训SDXL的lora，大概就数据丢进去lora训出来，效果还可以那就用它了，你可能自己再调1调参数再训会比我的效果好！
 
 
 ## 1个疑问
