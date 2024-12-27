@@ -1,6 +1,8 @@
-# danbooru扩展标签标注！
+# Danbooru扩展标签标注！
 
-事情是这样的，大部分动漫主题的stable diffusion模型是以danbooru tags作为prompt来训练的。danbooru tags是1个非常大的标签集合，从人物的发型，到鞋子的款式应有尽有。但是它并不是很均衡，其中背景内容的标签往往只占很小1部分，例如标签中包含`white hair/black hair/blonde hair`等各色头发，但是table就只有table这个标签，没有`white table`，因此用danbooru tags训练出来的模型就不是很容易画背景。
+事情是这样的，大部分动漫主题的stable diffusion模型是以danbooru tags作为prompt来训练的。
+
+danbooru tags是1个非常大的标签集合，从人物的发型到鞋子的款式应有尽有。但是它并不是很均衡，其中背景内容的标签往往只占很小1部分，例如标签中包含`white hair/black hair/blonde hair`等各色头发，但是table就只有table这个标签，没有`white table`，因此用danbooru tags训练出来的模型就不是很容易画背景。
 
 那如果让mllm来给这些数据打上更加丰富的背景物件标签，是不是就能解决这个问题了呢？
 
@@ -42,15 +44,15 @@ def 物件计数(image: Image.Image, tags: list[str]) -> list[str]:
 
 还有几个类似的接口，比如`物件上色`，`发现家具`，`发现地板`，`发现门`，就不解释了，几乎都是1样的接口，你看名字就知道是什么意思了！
 
-
 ### 直接开始训练
 
-如果你想要直接开始训练，也可以运行`出生.py`。运行它需要准备1个danbooru2023数据集，然后会生成1个打好标的符合[kohya-ss/sd-scripts](https://github.com/kohya-ss/sd-scripts)的格式的子集，然后你就可以把它丢进sd-scripts训练啦。
+如果平时习惯用[kohya-ss/sd-scripts](https://github.com/kohya-ss/sd-scripts)来训练模型，也可以用仓库里的简易工具直接生成1份数据集，生成的数据集就是打好标符合sd-scripts格式的，然后你就可以把它丢进sd-scripts训练啦。
 
+运行方法是下载1份[danbooru2023](https://huggingface.co/datasets/nyanko7/danbooru2023)数据集<sub>(太大了不用全下，下前50个包就够了)</sub>，改1下`danbooru_loader.py`里的数据集路径，然后运行`出生.py`就可以了。
 
 ### 使用训练好的lora
 
-如果你想要直接使用，我还上传了1个训练好的lora到[release](https://github.com/RimoChan/danbooru-prompt-extend/releases)，可以直接下回去用。不过我也很少训SDXL的lora，大概就数据丢进去lora训出来，效果还可以那就用它了，你可能自己再调1调参数再训会比我的效果好！
+如果你想要直接使用，我还上传了1个训练好的lora到[release](https://github.com/RimoChan/danbooru-prompt-extend/releases)和[Civitai](https://civitai.com/models/1076462/prompt-extend)，可以直接下回去用。不过我也很少训SDXL的lora，大概就数据丢进去lora训出来，效果还可以那就用它了，你可能自己再调1调参数再训会比我的效果好！
 
 
 ## 1个疑问
