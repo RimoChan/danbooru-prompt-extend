@@ -2,32 +2,12 @@ import os
 import random
 import hashlib
 from pathlib import Path
-from datetime import datetime
 
 from tqdm import tqdm
 
 import 补充
 from danbooru_loader import 超源
-
-
-def 人数标签(s: str):
-    if s in ('1girl', '1boy'):
-        return True
-    if s.endswith('girls') or s.endswith('boys'):
-        return True
-    return False
-
-
-def 时间标签(iso_time: str):
-    year = datetime.fromisoformat(iso_time).year
-    year_tag = 'newest'
-    for t, y in [('oldest', 2017), ('old', 2019), ('modern', 2020), ('recent', 2022)]:
-        if year <= y:
-            year_tag = t
-            break
-    res = [f'year {year}', year_tag]
-    random.shuffle(res)
-    return res
+from 标签处理 import 分离人数标签, 时间标签
 
 
 if __name__ == '__main__':
@@ -47,8 +27,7 @@ if __name__ == '__main__':
 
         差tags = set(tags) - set(原始tags)
         if len(差tags) >= 2:
-            人 = [i for i in 原始tags if 人数标签(i)]
-            剩下的 = [i for i in 原始tags if not 人数标签(i)]
+            人, 剩下的 = 分离人数标签(原始tags)
             if len(剩下的) > 14:
                 限制标签数 = random.randint(14, (14 + len(剩下的))//2)
                 剩下的 = random.sample(剩下的, 限制标签数)
