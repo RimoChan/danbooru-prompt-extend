@@ -29,7 +29,7 @@ danbooru tags是1个非常大的标签集合，从人物的发型到鞋子的款
 
 ### 人物分离
 
-比如我要画1张2个JK的画，并2个人指定衣服和位置，分别是:
+比如我要画1张2个JK的画，并为2个人指定衣服和位置，分别是:
 
 - 黑头发、蓝裙子、在左边。
 
@@ -81,7 +81,7 @@ def 分离每个人tags(image: Image.Image, 原始tags: list[str]) -> tuple[list
 
 背景扩充的Lora是用从[danbooru2023](https://huggingface.co/datasets/nyanko7/danbooru2023)中筛选出的9330张图，使用Qwen2-VL-7B-Instruct打标后，在NoobAI 1.0上训练了3个epoch得到的。
 
-人物分离的Lora是用从[danbooru2023](https://huggingface.co/datasets/nyanko7/danbooru2023)中筛选出的12004张图，使用mldanbooru打标后，在illustriousXL 0.1上训练了10个epoch得到的。
+人物分离的Lora是用从[danbooru2023](https://huggingface.co/datasets/nyanko7/danbooru2023)中筛选出的12004张图，使用mldanbooru打标后，在illustriousXL 0.1上训练了10个epoch得到的。需要注意的是，分离人物时需要给prompt加上希腊字母前缀，表示它属于哪个人，例如`2girls, α black hair, α blue skirt, β white hair, β red skirt, indoors`。这个只是为了lora训练快就这样设计了，如果你要全量finetune的话，也许可以设计1个更美的prompt格式。
 
 不过我也很少训SDXL的lora，大概就数据丢进去lora训出来，效果还可以那就用它了，你可能自己再调1调参数再训会比我的效果好！
 
