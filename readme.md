@@ -77,7 +77,7 @@ def 分离每个人tags(image: Image.Image, 原始tags: list[str]) -> tuple[list
 
 ### 使用训练好的lora
 
-如果你想要直接使用，我也上传了训练好的lora到[GitHub Releases](https://github.com/RimoChan/danbooru-prompt-extend/releases)和[Civitai](https://civitai.com/models/1076462/prompt-extend)，可以直接下回去用。
+如果你想要直接使用，我也上传了训练好的lora到[GitHub Releases](https://github.com/RimoChan/danbooru-prompt-extend/releases)和[Civitai(背景扩充)](https://civitai.com/models/1076462)/[Civitai(人物分离)](https://civitai.com/models/1125124)，可以直接下回去用。
 
 背景扩充的Lora是用从[danbooru2023](https://huggingface.co/datasets/nyanko7/danbooru2023)中筛选出的9330张图，使用Qwen2-VL-7B-Instruct打标后，在NoobAI 1.0上训练了3个epoch得到的。
 
